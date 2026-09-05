@@ -145,14 +145,14 @@ def show_predict_page():
             st.write("Notify Local Blood Bank.")
             st.markdown("**:red[For more info call: 0181818181]**")
         elif(x==5):
-            st.write("Notify Local Local Government and Health Organization.")
+            st.write("Notify Local Government and Health Organization.")
             st.markdown("**:red[For more info call: 0181818181]**")
         elif(x==6):
-            st.write("Notify Local Blood Bank.")
+            st.write("Notify Mental Health Crisis Support and Local Police Station.")
             st.markdown("**:red[For more info call: 0181818181]**")
         elif(x==7):
-            st.write("Notify Local Blood Bank.")
+            st.write("Notify Law Enforcement and The Emergency Dispatch Unit.")
             st.markdown("**:red[For more info call: 0181818181]**")
         elif(x==8):
-            st.write("Notify Local Blood Bank.")
+            st.write("Notify Local Government and Disaster Management Unit.")
             st.markdown("**:red[For more info call: 0181818181]**")
