@@ -1,0 +1,41 @@
+# Training dependencies. Requires Python 3.10 - torch 1.12.1 publishes no
+# wheels for 3.11+.
+#
+#   python3.10 -m venv .venv
+#   source .venv/bin/activate          # Windows: .venv\Scripts\activate
+#   pip install -r BERT/requirements.txt
+#   cd BERT && python train.py --model=xlm-roberta-base --task=social-media \
+#       --batch-size=16 --lr=0.00001 --save-path=logs/social-media/xlm-base
+
+torch==1.12.1
+transformers==4.23.1
+tokenizers==0.13.1
+sentencepiece==0.1.97
+
+numpy==1.23.4
+scikit-learn==1.2.1
+pandas==1.4.2
+
+# downloads the dataset splits on first use (BERT/data_store.py)
+huggingface-hub==0.36.2
+
+# GPU training
+# ------------
+# The pin above installs the CPU build, which trains far too slowly to be
+# practical. For an NVIDIA GPU, replace it after installing the rest:
+#
+#   pip install torch==1.12.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
+#
+# That wheel bundles its own CUDA runtime, so no separate CUDA/cuDNN install is
+# needed. Verify with:
+#
+#   python -c "import torch; print(torch.cuda.is_available())"
+#
+# Notes
+# -----
+# - The dataset is not in this repository. It is pulled from
+#   https://huggingface.co/datasets/NightRaven/bangla-emergency-posts
+#   and cached under ~/.cache/huggingface, so the first run needs network
+#   access. Override the source with the DATASET_REPO environment variable.
+# - pandas is imported by train.py but not actually used; it can be dropped
+#   from both the import and this file.
