@@ -16,7 +16,6 @@ out/
 
 Inference_UI/models/
 Inference_UI/data/
-ModelTraining/models/
 ModelTraining/data/
 
 # OS
