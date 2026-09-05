@@ -1,22 +1,10 @@
-# Training dependencies. Requires Python 3.10 - torch 1.12.1 publishes no
-# wheels for 3.11+.
-#
-#   python3.10 -m venv .venv
-#   source .venv/bin/activate          # Windows: .venv\Scripts\activate
-#   pip install -r BERT/requirements.txt
-#   cd BERT && python train.py --model=xlm-roberta-base --task=social-media \
-#       --batch-size=16 --lr=0.00001 --save-path=logs/social-media/xlm-base
-
 torch==1.12.1
 transformers==4.23.1
 tokenizers==0.13.1
 sentencepiece==0.1.97
-
 numpy==1.23.4
 scikit-learn==1.2.1
 pandas==1.4.2
-
-# downloads the dataset splits on first use (BERT/data_store.py)
 huggingface-hub==0.36.2
 
 # GPU training

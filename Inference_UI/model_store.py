@@ -2,7 +2,7 @@
 
 The trained weights are too large for git (3.3 GB, six files over GitHub's
 100 MB per-file limit), so they live in a Hugging Face model repo instead.
-A checkout that already has UI/models/ keeps using it; anywhere else the files
+A checkout that already has Inference_UI/models/ keeps using it; anywhere else the files
 are fetched once and cached under ~/.cache/huggingface.
 
 Override the source repo with the MODELS_REPO environment variable.
@@ -16,9 +16,7 @@ from huggingface_hub import hf_hub_download, snapshot_download
 REPO_ID = os.environ.get(
     "MODELS_REPO", "NightRaven/bangla-emergency-post-classification"
 )
-DATASET_REPO_ID = os.environ.get(
-    "DATASET_REPO", "NightRaven/bangla-emergency-posts"
-)
+DATASET_REPO_ID = os.environ.get("DATASET_REPO", "NightRaven/bangla-emergency-posts")
 LOCAL_MODELS = Path(__file__).resolve().parent / "models"
 LOCAL_DATA = Path(__file__).resolve().parent / "data"
 
