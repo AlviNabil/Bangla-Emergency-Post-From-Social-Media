@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# virtual environments
+.venv/
+venv/
+env/
+
+# staging folders built by BERT/export_hf_dataset.py and published to the Hub
+hf_dataset/
+hf_live/
+
+# training output
+logs/
+UI/logs/
+BERT/logs/
+
+# OS
+Thumbs.db
+.DS_Store
+
+#Editor
+.vscode
+
