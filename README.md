@@ -43,11 +43,11 @@ On Windows the activate line is `.venv\Scripts\activate`.
 ## Running the app
 
 ```bash
-pip install -r UI/requirements.txt
+pip install -r Inference_UI/requirements.txt
 ```
 
 ```bash
-streamlit run UI/app.py
+streamlit run Inference_UI/app.py
 ```
 
 Opens on <http://localhost:8501>. Pick an approach and a model, paste a Bangla
@@ -59,25 +59,25 @@ A GPU is optional here — inference runs fine on CPU.
 ## Training
 
 ```bash
-pip install -r BERT/requirements.txt
+pip install -r ModelTraining/requirements.txt
 ```
 
 ```bash
-cd BERT && python train.py --model=<model-name> --task=social-media --batch-size=16 --lr=0.00001 --epoch=10 --save-path=<output-path>
+cd ModelTraining && python train.py --model=<model-name> --task=social-media --batch-size=16 --lr=0.00001 --epoch=10 --save-path=<output-path>
 ```
 
 for example:
 
 ```bash
-cd BERT && python train.py --model=xlm-roberta-base --task=social-media --batch-size=16 --lr=0.00001 --epoch=10 --save-path=model-weights
+cd ModelTraining && python train.py --model=xlm-roberta-base --task=social-media --batch-size=16 --lr=0.00001 --epoch=10 --save-path=model-weights
 ```
 
-Outputs land in `BERT/logs/<save-path>/`: `social-media_weights.pt` (best
+Outputs land in `ModelTraining/logs/<save-path>/`: `social-media_weights.pt` (best
 checkpoint by validation accuracy), `social-media_logs.csv` (per-epoch metrics)
 and `social-media_result.txt` (final test metrics and confusion matrix).
 
 **A GPU is effectively required for training.** The default pin installs the CPU
-build of torch; see the note at the bottom of `BERT/requirements.txt` for the
+build of torch; see the note at the bottom of `ModelTraining/requirements.txt` for the
 CUDA wheel. Training XLM-RoBERTa for 10 epochs takes roughly half an hour on a
 GTX 1070 Ti and impractically long on CPU.
 
@@ -85,7 +85,7 @@ To serve a newly trained model, upload it over the Hub copy and clear the cached
 version so it is re-fetched:
 
 ```bash
-hf upload NightRaven/bangla-emergency-post-classification BERT/logs/social-media/xlm-base/social-media_weights.pt Transformer/XLM-RoBERTa/social-media_weights.pt --repo-type model
+hf upload NightRaven/bangla-emergency-post-classification ModelTraining/logs/social-media/xlm-base/social-media_weights.pt Transformer/XLM-RoBERTa/social-media_weights.pt --repo-type model
 ```
 
 ## Labels
